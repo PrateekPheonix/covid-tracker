@@ -5,17 +5,17 @@ import styles from './Cards.module.css'
 import cx from 'classnames'
 
 const cards = (props) => {
-    if(!props.data.confirmed){
+    if (!props.data.confirmed) {
         return 'Loading.....';
     }
     return (
         <div className={styles.container}>
-            <Grid container spacing ={3} justifyContent="center">
+            <Grid container spacing={3} justifyContent="center">
                 <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)} >
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
-                        <Typography variant="h5" > 
-                            <CountUp start={0} end={props.data.confirmed.value} duration={3} separator="," /> 
+                        <Typography variant="h5" >
+                            <CountUp start={0} end={props.data.confirmed.value} duration={3} separator="," />
                         </Typography>
                         <Typography color="textSecondary">
                             {new Date(props.data.lastUpdate).toDateString()}
@@ -24,7 +24,7 @@ const cards = (props) => {
                     </CardContent>
                 </Grid>
 
-                <Grid item component={Card}  xs={12} md={3} className={cx(styles.card, styles.recovered)} >
+                {/* <Grid item component={Card}  xs={12} md={3} className={cx(styles.card, styles.recovered)} >
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Recovered</Typography>
                         <Typography variant="h5" >
@@ -35,13 +35,13 @@ const cards = (props) => {
                         </Typography>
                         <Typography variant="body2" >Number of recoveries from COVID-19</Typography>
                     </CardContent>
-                </Grid>
+                </Grid> */}
 
-                <Grid item component={Card}  xs={12} md={3} className={cx(styles.card, styles.deaths)} >
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.deaths)} >
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Deaths</Typography>
                         <Typography variant="h5" >
-                            <CountUp start={0} end={props.data.deaths.value} duration={3} separator="," /> 
+                            <CountUp start={0} end={props.data.deaths.value} duration={3} separator="," />
                         </Typography>
                         <Typography color="textSecondary">
                             {new Date(props.data.lastUpdate).toDateString()}
